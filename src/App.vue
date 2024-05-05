@@ -1,16 +1,9 @@
 <script setup>
-import Login from "@/views/login/index.vue"
-import Home from "@/views/layout/home.vue"
-import Category from "@/views/layout/category.vue";
-import TabBar from "@/views/prodetail/index.vue"
+
 </script>
 
 <template>
-<!--  <router-view />-->
-<!--  <Login></Login>-->
-<!--  <Home></Home>-->
-<!--  <Category></Category>-->
-<TabBar></TabBar>
+  <router-view></router-view>
 </template>
 
 <style scoped>
