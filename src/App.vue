@@ -1,20 +1,16 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Login from "@/views/login/index.vue"
+import Home from "@/views/layout/home.vue"
+import Category from "@/views/layout/category.vue";
+import TabBar from "@/views/prodetail/index.vue"
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+<!--  <router-view />-->
+<!--  <Login></Login>-->
+<!--  <Home></Home>-->
+<!--  <Category></Category>-->
+<TabBar></TabBar>
 </template>
 
 <style scoped>
