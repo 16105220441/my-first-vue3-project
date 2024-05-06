@@ -1,10 +1,19 @@
 <script setup>
-import {ref} from "vue"
+import {ref,onBeforeMount} from "vue"
 import GoodsItem from "@/components/GoodsItem.vue";
+import {getHomeData} from "@/api/home.js";
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
+const bannerList = []
+const navList = []
+const proList = []
 
+const getPageDate = async ()=>{
+  let {items} = await getHomeData()
+  console.log('items',items)
+}
+getPageDate()
 const onLoad = () => {
   // 异步更新数据
   // setTimeout 仅做示例，真实场景中一般为 ajax 请求
