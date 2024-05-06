@@ -21,6 +21,7 @@ const getPageDate = async ()=>{
     navList = items[3].data
     proList = items[6].data
   }
+  console.log('navList',navList)
 }
 getPageDate()
 const onLoad = () => {
@@ -51,16 +52,11 @@ const onLoad = () => {
       <van-swipe-item v-for="(item,index) in bannerList" :key="index">
         <img :src="item.imgUrl" alt="">
       </van-swipe-item>
-<!--      <van-swipe-item>
-        <img src="@/assets/banner2.jpg" alt="">
-      </van-swipe-item>
-      <van-swipe-item>
-        <img src="@/assets/banner3.jpg" alt="">
-      </van-swipe-item>-->
+
     </van-swipe>
 
     <van-grid :column-num="5">
-      <van-grid-item v-for="value in 10" :key="value" icon="photo-o" text="文字"/>
+      <van-grid-item v-for="(item,index) in navList" :key="index" icon="photo-o" :text="item.text"/>
     </van-grid>
 
     <div class="main">
