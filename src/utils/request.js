@@ -15,8 +15,7 @@ request.interceptors.request.use(function (config){
             duration:0,
         }
     )
-    const token = userStore().userInfo
-    console.log('token',token)
+    const token = userStore().userInfo.token
     if(token){
         config.headers["Access-Token"] = token
         config.headers['platform'] = 'H5'

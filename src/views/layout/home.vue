@@ -5,13 +5,22 @@ import {getHomeData} from "@/api/home.js";
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
-const bannerList = []
-const navList = []
-const proList = []
+let bannerList = []
+let navList = []
+let proList = []
 
 const getPageDate = async ()=>{
-  let {items} = await getHomeData()
-  console.log('items',items)
+  let {data:{
+    pageData:{
+      items
+    }
+  }} = await getHomeData()
+  // console.log('items',items)
+  if(items){
+    bannerList = items[1].data
+    navList = items[3].data
+    proList = items[6].data
+  }
 }
 getPageDate()
 const onLoad = () => {
@@ -39,15 +48,15 @@ const onLoad = () => {
   <main>
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
 
-      <van-swipe-item>
-        <img src="@/assets/banner1.jpg" alt="">
+      <van-swipe-item v-for="(item,index) in bannerList" :key="index">
+        <img :src="item.imgUrl" alt="">
       </van-swipe-item>
-      <van-swipe-item>
+<!--      <van-swipe-item>
         <img src="@/assets/banner2.jpg" alt="">
       </van-swipe-item>
       <van-swipe-item>
         <img src="@/assets/banner3.jpg" alt="">
-      </van-swipe-item>
+      </van-swipe-item>-->
     </van-swipe>
 
     <van-grid :column-num="5">
